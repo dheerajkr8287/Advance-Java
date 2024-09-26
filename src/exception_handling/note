@@ -1,0 +1,56 @@
+Exception:An unwanted even that disturb normal flow of program is called exception
+
+Types of Exceptions:
+1. Checked Exceptions:
+Checked exceptions are those that the compiler forces you to handle explicitly.
+Examples include IOException, SQLException, etc.
+Handling checked exceptions is done using the try-catch block.
+
+2. Unchecked Exceptions:
+Unchecked exceptions are not checked at compile-time but are thrown at runtime.
+Examples include NullPointerException, ArrayIndexOutOfBoundsException, etc.
+Handling unchecked exceptions is optional but recommended
+
+
+Note: RuntimeException and its child classes, Error and its child classes are unchecked
+and all the remaining are considered as checked exceptions.
+
+Note: Whether exception is checked or unchecked compulsory it should occurs at
+runtime only and there is no chance of occurring any exception at compile time
+
+Fully checked Vs Partially checked:
+
+A checked exception is said to be fully checked if and only if all its child classes are also checked.
+-->check exception ko ya toh hmm try-catch se handles karte ha ya usse deleget kar dete hai(matlab throws lga dete h jo default exception handle karta h)
+
+Example:
+1) IOException
+2) InterruptedException
+
+A checked exception is said to be partially checked if and only if some of its child classes are
+unchecked.
+Example:
+Exception
+Note: The only possible partially checked exceptions in java are:
+1. Throwable.
+2. Exception.
+
+exception handling:
+in my program if i am having any code that may raise a exception is called risky code,this should be placedin try block and thecorresponding handling code in catch block
+
+
+finalize:is a method call by garbage collector before destroyed the object
+final :is keyword used in variable for making constant
+finally: is a block of code which use with try and catch and excute any how
+          -->we can use the finally block after try catch block
+          -->the finally block is always excuted whether there is an exception inside the try block or not
+          -->its is good practice to use finally block to included important cleanup code like closing a file or connection
+
+          some case when finally block does not excute
+          -->use of system.exit() method
+          --:an exception occur in finally block
+          -->the dead of thread
+
+Note:agar kio exception handle na kare toh default exception handler karta h
+
+

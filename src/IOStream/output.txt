@@ -1,0 +1,3 @@
+hello kakaji
+this is printwriter example
+This is a number: 123

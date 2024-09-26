@@ -1,0 +1,132 @@
+1:Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which can contain data and code
+
+2:Class: A blueprint or template for creating objects.
+3:Object: An instance of a class.
+
+4:principle of oops
+*encapsulation
+*abstraction
+*polymorphism
+*inheritence
+
+
+*encapsulation :>(the act of putting various components together in capsule)
+ is a used to combine our variable and method as a single entity
+ we can achieve encapsulation by using classes
+
+ class demo{
+      //variable
+      //method
+ }
+
+
+*abstraction:>(hiding internal details show only essential information)
+we can achieve abstraction using interface and abstract class
+ex:use phone without bother about how it was made
+
+
+*polymorphism:>(one entity many forms)
+ex:smartphone -> phone    , samrtphone->camera
+
+-->method overloading
+-->method overriding
+
+*inheritence->(the act of deriving new things from existing things)
+
+ex->rickshaw->E-rickshaw
+
+type of inheritence:>
+1:single inheritence
+2:multilevel inheritence
+3:hierachical inheritence
+4:multiple inheritence
+
+
+
+
+INSTANCE VARIABLE :>
+1:variable which are declare inside the class but outside the method is called instance variable
+2:IF  we don't initalize instance varible ,it will be initilaize by default based on the datatype when the object is created
+3:every object will maintain its own copy of instance variable
+4:in static we cannot use instance variable (use with make object)
+
+
+note:if function is not returning anything then we 'void' ,in case of void no need to add return type
+
+method parameter: are the variable that will recieve the value that are passed into the method by the time of calling
+
+method signature:  method name+method para
+
+
+method overloading :is allowing with same name but different parameter with in the same class
+
+method overriding : same method name+ same method para+ same return type(covariant)
+Method Overriding in Java:
+Method overriding occurs when a subclass (child class) provides a specific implementation of a method that is already defined in its superclass (parent class). This allows the subclass to modify or extend the behavior of the inherited method.
+
+Key points about method overriding:
+
+Same Method Signature: The method in the subclass must have the same name, return type, and parameters as the method in the superclass.
+Access Modifier: The access modifier of the overriding method in the subclass should not be more restrictive than the method in the superclass. For example, if the superclass method is public, the overriding method cannot be private or protected.
+Instance Methods: Only instance methods (non-static methods) can be overridden. Static methods cannot be overridden, though they can be hidden.
+Annotations: The @Override annotation is often used above the overriding method to explicitly indicate that a method is being overridden. It helps in catching errors at compile-time.
+
+Why Use Method Overriding?
+Runtime Polymorphism: Method overriding allows for dynamic method dispatch (runtime polymorphism). The type of object determines which version of the method will be called at runtime.
+
+For example:
+
+Animal a = new Dog(); // Reference is of type Animal, but the object is of type Dog
+a.sound(); // Dog's sound() method will be called because of polymorphism
+Extending/Customizing Behavior: A subclass can provide a more specific implementation of a method that is defined in a general way in the superclass.
+note:by default object class is parent class
+
+Rules for Method Overriding
+The method in the subclass must have the same method signature (name, parameters, and return type) as the method in the superclass.
+The overriding method cannot throw more checked exceptions than the overridden method.
+You cannot override final methods (methods that are marked final in the parent class).
+Static methods cannot be overridden, but they can be hidden (this is called method hiding, not overriding).
+
+
+:this is use for current obj show
+:super is use for parent obj show
+
+
+
+final keyword: can be used at variable ,method,classes
+variable:if we declare a variable as final then we cannot modify its value
+method:if we declare method as final then we cannot override
+class:if we declare class as final then we cannot extend this class
+
+syntax:
+keyword datatype identifier
+
+
+ABSTRACT CLASS and METHOD:
+-->class which is declare using abstract keyword is called abstract class
+-->abstract class may or maynot have abstract method
+-->we cannot create abstract class object
+-->it used to provide abstraction
+
+Abstract class :
+it not provide 100% abstraction? because we have concrete method inside abstract class
+-->abstract class may or maynot have abstract method
+-->abstract class must declare with an abstract keyword
+-->it cannot be instantiated
+-->it is used for abstraction
+
+
+Abstract method :
+method which is declare using abstract keyword is called abstact method
+method that are declare with out body within abstract keyword
+note :the method body will be define by its subclasses
+abstract method can never be final.
+
+
+
+
+
+
+
+
+

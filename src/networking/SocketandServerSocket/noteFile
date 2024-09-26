@@ -1,0 +1,82 @@
+Socket and ServerSocket in Java:
+
+In Java, Socket and ServerSocket are classes used for networking, allowing two computers to communicate over a network. They enable a client-server architecture, where a server listens for client requests and responds to them.
+
+
+ ----------------SOCKET ------------------------------
+
+ ->The Socket class represents the client-side of a two-way communication link between your Java program and another program over the network.
+  It provides the mechanism to connect to a server, send/receive data, and close the connection.
+  -->Represents a client connection to a server.
+  -->The Socket class is used by the client to create a connection to the server.
+  It requires the server's IP address (or hostname) and port number to initiate the connection.
+
+---- How the Socket works:-----
+ 1:Connection Establishment:
+ The client uses a Socket to connect to a remote server via IP address and port number.
+ A socket connection can be TCP or UDP. By default, Java uses TCP (Transmission Control Protocol) for sockets.
+ 2:Data Transfer:
+ Once a connection is established, the socket provides input and output streams.
+ The client can write to the output stream (send data) and read from the input stream (receive data).
+ 3:Disconnection:
+ After communication is done, the socket should be closed to release resources.
+
+Key Methods of Socket Class:
+-->Socket(String host, int port): Creates a socket and connects to the server at the specified host and port.
+--->getInputStream():  Retrieves the input stream, allowing the client to receive data from the server.
+---->getOutputStream():Retrieves the output stream, allowing the client to send data to the server.
+--->close(): Closes the socket when communication is finished.
+
+
+----------ServerSocket (Server-side)----------
+
+
+The ServerSocket class is used by the server to listen for incoming connections. When a client attempts to connect, the ServerSocket creates a new Socket to handle the communication
+The ServerSocket class represents the server-side of the communication link. It is used to listen for incoming connections from clients and then establish a socket connection with the client.
+
+
+How the ServerSocket works:
+-------------Listening:
+The server creates a ServerSocket bound to a specific port and listens for connection requests from clients.
+---------------Accepting a Connection:
+When a client requests a connection, the server's ServerSocket accepts the request and returns a new Socket object for communication with the client.
+--------------Data Transfer:
+Once the connection is established, the server uses input/output streams to exchange data with the client.
+-----------------Handling Multiple Clients:
+For handling multiple clients, the server can either create multiple threads or use non-blocking I/O to handle each client in parallel.
+
+
+Key Methods of ServerSocket Class:
+ServerSocket(int port): Creates a server socket that listens on the specified port.
+accept(): Listens for a connection to be made to the server and accepts it, returning a new socket for communication.
+close(): Closes the server socket.
+
+
+
+-----------------------------------------------------------------------------------
+client -server using tcp
+
+Explanation:
+---------Server Process:---------------
+
+The server creates a ServerSocket on port 1234. It waits for incoming connections using the accept() method, which blocks until a client connects.
+Once a client connects, a Socket is created to handle the communication between the server and the client.
+The server reads the message sent by the client using an InputStream and sends a reply using an OutputStream.
+---------------Client Process:-----------------
+
+The client creates a Socket to connect to the server on localhost (which is the local machine) and port 1234.
+After establishing the connection, the client sends a message to the server using the OutputStream.
+The client then waits for the server's response using the InputStream.
+--------------Key Points:-----------------
+Blocking Methods: Both accept() (server-side) and readLine() (client-side and server-side) are blocking methods, meaning they pause the program until they receive input.
+Ports: A port is an endpoint on the host machine for network communication. In this example, port 1234 is used.
+Streams: Communication between the client and the server is done through input and output streams.
+Closing Sockets: It's crucial to close both the client and server sockets after communication to free up resources.
+===============eal-life Use Cases:==================
+Web Servers: When you access a website, your browser (client) opens a socket connection to the web server.
+Messaging Apps: Chat applications often use socket connections to send real-time messages between users.
+
+
+
+
+

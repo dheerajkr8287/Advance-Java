@@ -1,0 +1,38 @@
+typecasting:
+
+is a process of converting value from one type to another type
+
+note:In two same dataype type casting is not required
+
+type casting wrt primitive datatype:
+type casting can be done between compatiable datatype[byte short int long float double char]
+
+type of casting :
+
+wedening -->converting the value from lower type into higher datatype
+syntax:
+
+int-->long
+4       8
+
+higher datatype=(higher datatype)lower datatype
+
+note:int wedening writing the type casting is optional
+---> if we dont write any type casting then complier will write the typecasting automatically hence it
+     is called is implict type casting
+
+
+Narrowing--->
+converting the value from higher into lower dataype
+
+****-->   type casting wrt reference type:
+mean converting the object from one reference to another type
+
+type casting can be done only between compitable type[parent -child]
+
+type:
+-->up casting
+-->down casting
+
+
+

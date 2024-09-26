@@ -1,0 +1,231 @@
+-->Introduction to Networking in Java
+
+Java provides a powerful set of APIs for network programming,
+primarily through the java.net package. This package includes
+classes for handling sockets, URLs, and networking protocols.
+
+Localhost
+Definition: localhost refers to the local computer or device on which a program is running. It is commonly associated with the IP address 127.0.0.1, which is a loopback address used for network communication within the same machine.
+Usage: When you use localhost in your code, you're indicating that the client (like your Java application) will connect to a server running on the same machine. This is useful for testing and development.
+
+
+-----------------Basic Networking Concepts:------------------
+1. IP Address
+Definition: An IP (Internet Protocol) address is a unique identifier assigned to each device on a network. It enables the identification and location of devices for communication.
+Types:
+IPv4: 32-bit address, represented as four decimal numbers separated by periods (e.g., 192.168.1.1).
+IPv6: 128-bit address, represented in hexadecimal format (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+
+Example:
+import java.net.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        try{
+            InetAddress address = InetAddress.getByName("google.com");
+System.out.println("IP Address: " + address.getHostAddress());
+        }
+        catch(Exception e){
+                    System.out.println(e.getMessage());
+
+        }
+    }
+}
+
+output:IP Address: 108.177.121.138
+
+2. Port
+Definition: A port is a logical connection point where network services (applications) communicate. Each service on a machine is assigned a port number, which helps in routing the data to the correct service.
+Port Numbers:
+0 to 1023: Well-known ports (e.g., HTTP uses port 80, HTTPS uses port 443).
+1024 to 49151: Registered ports.
+49152 to 65535: Dynamic or private ports.
+Example: A web server typically runs on port 80 for HTTP and port 443 for HTTPS.
+Usage: When a client connects to a server, it specifies both the IP address (or localhost) and the port number. The server listens on that port for incoming connections.
+Example Scenario
+If you run a server application on your local machine using localhost and port 12345, a client application on the same machine can connect to it using the same IP address and port number.
+
+Server Example:
+ServerSocket serverSocket = new ServerSocket(12345); // Listening on port 12345
+Client Example:
+Socket socket = new Socket("localhost", 12345); // Connecting to localhost on port 12345
+
+3. Protocol
+Definition: A protocol is a set of rules that define how data is transmitted and received over a network. Different protocols handle different types of communication.
+Common Protocols:
+TCP (Transmission Control Protocol): A reliable, connection-oriented protocol that guarantees the delivery of data in the correct order.
+UDP (User Datagram Protocol): A connectionless, less reliable protocol that is faster but doesn't guarantee delivery or order.
+HTTP (Hypertext Transfer Protocol): The protocol used for web communication.
+Example: TCP is used for reliable communication (e.g., file transfers), while UDP is used for real-time communication (e.g., video streaming).
+
+
+-->Socket(like a nodes)
+In Java, sockets are a way to establish a connection between two machines over a network. They allow for communication between clients and servers using the TCP/IP protocol.
+Java provides two main types of sockets:
+type:
+TCP (Stream Sockets): Reliable, connection-oriented communication.
+UDP (Datagram Sockets): Unreliable, connectionless communication.
+ex;-----> Socket socket = new Socket("localhost", 8080); // TCP socket to connect to a server on port 8080
+Key Concepts
+
+Sockets:
+Client Socket: Represents the client side of a connection.
+Server Socket: Listens for incoming connections from clients.
+URLs: Java can interact with resources on the internet using URLs, which can point to various protocols like HTTP, FTP, etc.
+Datagrams: Used for connectionless communication, mainly with UDP (User Datagram Protocol).
+
+5. Client-Server Architecture
+Definition: This is a networking model where a client (the device or program that initiates a request) communicates with a server (the device or program that provides services) over a network.
+Client: Sends requests to the server (e.g., a browser requesting a webpage).
+Server: Responds to client requests by providing services or data (e.g., a web server serving a webpage).
+Example: A web browser (client) communicates with a web server (server) over the internet.
+
+6. DNS (Domain Name System)
+Definition: DNS is a system that translates domain names (e.g., www.google.com) into IP addresses (e.g., 216.58.214.14).
+ This allows users to access websites using easy-to-remember names instead of numeric IP addresses.
+ Example:
+ InetAddress address = InetAddress.getByName("google.com");
+ System.out.println("IP Address: " + address.getHostAddress());  // Resolves google.com to its IP
+
+7. Bandwidth
+Definition: Bandwidth refers to the amount of data that can be transmitted over a network in a given amount of time, usually measured in bits per second (bps).
+Higher Bandwidth: Allows for faster data transfer (e.g., streaming HD video).
+Lower Bandwidth: Results in slower data transfer (e.g., browsing on a slow network).
+
+8. Latency
+Definition: Latency is the delay between sending a request and receiving a response over a network. It is measured in milliseconds (ms).
+Low Latency: Ideal for real-time applications like online gaming or video conferencing.
+High Latency: Causes noticeable delays in communication, making applications feel unresponsive.
+
+9. Packet
+Definition: A packet is a small unit of data that is transmitted over a network. Large amounts of data are broken down into packets, sent individually, and reassembled at the destination.
+TCP Packets: Ensure that all packets are received in the correct order.
+UDP Packets: May arrive out of order or be lost without retransmission.
+
+10. Firewall
+Definition: A firewall is a security system that monitors and controls incoming and outgoing network traffic. It allows or blocks traffic based on predefined security rules to protect a network from unauthorized access.
+Types:
+Hardware Firewall: A physical device that protects an entire network.
+Software Firewall: A software application that protects individual devices.
+
+
+------------------------JAVA.NET PACKAGE classes for networking application----------------------------
+
+The java.net package provides classes for networking applications, allowing developers to create, connect, and manage networked resources, such as URLs, sockets, and servers. Some of the most useful classes in java.net include:
+
+URL (Uniform Resource Locator)
+URLConnection
+InetAddress
+Socket and ServerSocket
+DatagramSocket and DatagramPacket
+
+
+
+1. URL (Uniform Resource Locator)--->link--->(https://docs.oracle.com/javase/8/docs/api/java/net/URL.html)
+
+(public final class URL
+extends Object
+implements Serializable)
+
+The URL class represents a Uniform Resource Locator, a pointer to a "resource" on the web, such as a web page or file. You can retrieve information about the resource using this class.
+A resource can be something as simple as a file or a directory, or it can be a reference to a more complicated object, such as a query to a database or to a search engine
+
+In general, a URL can be broken into several parts. Consider the following example:
+
+     http://www.example.com/docs/resource1.html
+
+The URL above indicates that the protocol to use is http (HyperText Transfer Protocol) and that the information resides on a host machine named www.example.com. The information on that host machine is named /docs/resource1.html. The exact meaning of this name on the host machine is both protocol dependent and host dependent. The information normally resides in a file, but it could be generated on the fly. This component of the URL is called the path component.
+
+A URL can optionally specify a "port", which is the port number to which the TCP connection is made on the remote host machine. If the port is not specified, the default port for the protocol is used instead. For example, the default port for http is 80. An alternative port could be specified as:
+
+     http://www.example.com:1080/docs/resource1.html
+
+Key Methods:
+getProtocol(): Returns the protocol (e.g., http, ftp).
+getHost(): Returns the host name.
+getPath(): Returns the file path.
+openStream():Opens a connection to this URL and returns an InputStream for reading from that connection. This method is a shorthand for:
+
+
+2:URLConnection
+URLConnection represents a communication link between your Java application and a URL. It provides a more flexible way to handle network connections than URL.
+
+Key Methods:
+connect(): Establishes a connection.
+getInputStream(): Returns an input stream for reading data from the resource.
+getContentType(): Returns the content type of the resource.
+openConnection() :method in Java is a part of the URL class in the java.net package. It is used to create a URLConnection object for the specified URL. This method allows you to interact with the resource referenced by the URL, such as establishing a connection, retrieving headers, or reading data.
+
+3:InetAddress class  ---------https://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html
+
+
+InetAddress class in Java is part of the java.net package and provides a way to interact with IP addresses. This class abstracts away the details of both IPv4 and IPv6 addresses,
+allowing you to retrieve and manipulate IP addresses in a platform-independent manner.
+
+
+The InetAddress class in Java is part of the java.net package and provides a way to interact with IP addresses. This class abstracts away the details of both IPv4 and IPv6 addresses, allowing you to retrieve and manipulate IP addresses in a platform-independent manner.
+
+Key Concepts
+
+IP Address Representation:
+
+InetAddress represents an IP address (either IPv4 or IPv6) without worrying about its specific type.
+Subclasses of InetAddress include:
+Inet4Address for IPv4 addresses (32-bit).
+Inet6Address for IPv6 addresses (128-bit).
+
+DNS Resolution:
+
+InetAddress can resolve hostnames to IP addresses and vice versa.
+It provides methods for resolving hostnames into their corresponding IP addresses using DNS (Domain Name System)
+
+Not Directly a Socket:
+
+InetAddress represents only an address, not a socket. A socket is a combination of an IP address and a port.
+
+Methods in InetAddress
+Here are some common methods provided by the InetAddress class:
+
+----Static Methods (to create an InetAddress object):---
+
+>getByName(String host): Returns the IP address of the given hostname or string representation of an IP address.
+>getByAddress(byte[] addr): Returns an InetAddress object based on the raw IP address (in bytes).
+>getLocalHost(): Returns the InetAddress object that represents the local machine.
+
+ex:-----
+InetAddress address = InetAddress.getByName("www.google.com");
+System.out.println("IP Address: " + address.getHostAddress());
+
+----Instance Methods (after obtaining an InetAddress object):----
+
+getHostAddress(): Returns the string representation of the IP address.
+getHostName(): Returns the hostname corresponding to the IP address.
+isReachable(int timeout): Checks if the host is reachable within the specified timeout (in milliseconds).
+
+ex-->
+InetAddress localhost = InetAddress.getLocalHost();
+System.out.println("Local Host: " + localhost.getHostName());
+System.out.println("IP Address: " + localhost.getHostAddress());
+
+Multiple Addresses:
+
+getAllByName(String host): Returns all the IP addresses associated with a particular hostname (useful for load balancing or redundancy).
+
+ex-->
+InetAddress[] addresses = InetAddress.getAllByName("www.google.com");
+for (InetAddress addr : addresses) {
+    System.out.println(addr);
+}
+
+
+
+TCP (Transmission Control Protocol)
+Key Characteristics:
+Connection-oriented: TCP establishes a connection before data can be sent. It requires a handshake process to set up the connection.
+Reliable: Guarantees the delivery of data packets in the same order they were sent. If packets are lost, TCP will retransmit them.
+Error checking: Uses checksums to ensure data integrity. If errors are detected, TCP takes care of retransmitting the data.
+Flow control: Manages the rate of data transmission between sender and receiver to prevent overwhelming the receiver.
+Congestion control: Adjusts data transmission based on network congestion levels.
+Use Cases:
+Web browsing (HTTP/HTTPS)
+Email (SMTP, IMAP)
+File transfers (FTP)
