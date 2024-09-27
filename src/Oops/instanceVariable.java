@@ -22,6 +22,7 @@ public class instanceVariable {
         System.out.println(instance.a);
         System.out.println(instance.b);
 
+
     }
     public void demo(){
         System.out.println(a);
