@@ -1,4 +1,4 @@
-package Mutithreading;
+package Mutithreading.SynchronizeKeyword;
 class printMsg{
     public synchronized void m1(){
         for(int i=0;i<5;i++){

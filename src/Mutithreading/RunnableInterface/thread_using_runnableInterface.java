@@ -1,4 +1,4 @@
-package Mutithreading;
+package Mutithreading.RunnableInterface;
 class Deno implements Runnable{
     @Override
     public void run() {

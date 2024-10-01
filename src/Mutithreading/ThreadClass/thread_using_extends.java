@@ -1,4 +1,4 @@
-package Mutithreading;
+package Mutithreading.ThreadClass;
 class Demo extends Thread{
     @Override
     public void run() {
