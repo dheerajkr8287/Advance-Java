@@ -1,0 +1,175 @@
+-->Functional Programming
+1. Functional Programming: It's a way of
+writing programs where you use functions
+like small building blocks.
+ 2. Functions as First-Class: Functions can be
+passed as arguments, returned from other
+functions, and assigned to variables.
+ 3. Immutable Data: Once you create a piece of
+data, you don't change it.
+4. Pure Functions: These are special functions
+that always give the same result for the
+same input with no Side-Effects.
+ 5. Functional Interfaces: These are like
+templates for functions, making it easier to
+use them in different parts of your
+program
+
+
+
+
+--> Lambda Expression
+
+ 1. Shortcuts: Lambda expressions are
+quick, nameless functions for small
+tasks.
+ 2. Syntax: Written as (parameters) ->
+{body}, linking inputs to actions.
+ 3. Functional Interfaces: They work
+with interfaces that have only one
+method, making code concise.
+ 4. Readability: They make code shorter
+and clearer, especially with
+collections.
+ 5. Useful with Collections: Great for
+managing lists and sets, like filtering
+or sorting
+
+-->Stream
+
+ 1. Element Sequence: Streams represent a sequence of elements
+ 2.Functional Operations: Operations like map, filter, and reduce.
+ 3.No Storage: Streams don't store data; they process it on-the-fly from
+sources like collections or arrays.
+ 4.Efficiency: Stream operations can be lazy, processing elements only as
+needed, which is efficient for large data.
+ 5.One-Time Use: Streams are consumable; once processed, they cannot be.
+ 6.Parallel Capable: They support parallel processing, making operations
+faster by utilizing multiple threads
+
+
+--> Filtering
+ 1. Purpose: Used to filter elements of a stream based on a given
+predicate (a condition). Only elements that satisfy the
+condition are included in the resulting stream.
+ 2. Lazy Operation: It's a lazy operation, meaning it's not executed
+until a terminal operation (like collect or forEach) is invoked on
+the stream.
+ 3. Returns a Stream: filter itself returns a new stream with
+elements that match the predicate
+
+
+--> Reducing
+ 1. Purpose: Used to reduce the elements of a stream to a
+single value. It takes a binary operator as a parameter
+and applies it repeatedly, combining the elements of
+the stream.
+ 2. Versatile: Can be used for summing, finding min or max,
+and combining elements in a myriad of ways.
+ 3. Optional or Default Value: Without an identity value,
+reduce returns an Optional. With an identity value, it
+returns a default value if the stream is empty
+
+
+
+
+
+ Functional Interfaces
+
+ 1. Single Abstract Method (SAM): A functional
+interface has only one abstract method. However,
+it can have multiple default or static methods.
+ 2.Lambda Compatibility: They are intended to be
+used with lambda expressions, providing a target
+type for lambdas and method references.
+ 3.@FunctionalInterface Annotation: While not
+mandatory, this annotation helps the compiler to
+identify the intention of making an interface
+functional and to generate an error if the
+annotated interface does not satisfy the
+conditions.
+ 4.Common Examples: Predicate, Consumer,
+BinaryOperator, Runnable, Callable, Comparator,
+and user-defined interfaces can be functional if
+they have only one abstract method
+
+
+
+
+
+ -----------Method References-------------------
+
+ Syntax:
+
+ •Static Method References:
+ClassName::staticMethodName
+ •Instance Method:
+instance::instanceMethodName
+ •Instance Method Particular Class:
+ClassName::methodName
+ •Constructor References:
+ClassName::new.
+
+
+ 1. Purpose Syntax & Usage: A method reference is described using ::
+(double colon) syntax. For example, System.out::println refers to the
+println method of the System.out object.
+ 2.Functional Interfaces: They are used with functional interfaces.
+ 3.Benefit: They make your code more readable and concise
+ 4.Limitation: They can only be used for methods that fit the
+parameters and return type
+
+
+
+
+
+
+ Optional Class
+ 1. Creating Optional Objects: Optional.empty(),
+Optional.of(), Optional.ofNullable()
+ 2.Checking Value Presence: isPresent() and ifPresent()
+ 3.Default Values: orElse() and orElseGet()
+ 4.Value Transformation: map()
+ 5.Throwing Exception: orElseThrow()
+
+
+
+ Intermediate Operations
+  1. Laziness: Executed only when a terminal operation is invoked, setting
+ up a pipeline without processing data.
+  2. Stream Transformation: Transform one stream into another, e.g.,
+ filter, map. They're chainable, allowing multiple transformations.
+  3. State Handling: Can be stateless (like map) or stateful(like sorted),
+ affecting processing.
+
+  1. sorted() orders the elements of a stream
+ based on their natural order or a provided
+ comparator.
+  2.distinct() filters out duplicate elements,
+ ensuring that every element in the resulting
+ stream is unique.
+  3.map() applies a function to each element of a
+ stream, transforming them into a new stream
+ of results based on the function logic
+
+
+
+
+  Terminal Operations
+  1. Computation Trigger: Initiates the stream processing and closes the
+ stream. After this, the stream can't be reused.
+  2. Final Outcome: Produces a result (like a sum or list) or a side-effect
+ (like printing each element). Not chainable.
+  3. Examples: Operations like collect, forEach, reduce, sum, max, min,
+ and count are terminal
+
+
+  1. max() finds the largest element in
+ the stream according to a given
+ comparator or natural ordering.
+  2.min() identifies the smallest element
+ in the stream based on a provided
+ comparator or natural ordering.
+  3.collect(Collectors.toList()) gathers
+ all the elements of the stream into a
+ new List

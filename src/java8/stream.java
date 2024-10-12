@@ -98,13 +98,7 @@ public class stream {
 
         System.out.println(collect1);
 
-        //HW
-        // toMap, count,min marks,course
-        //raj--->math
-        //kirti--->eng
-        //nikhil--->math
-        //math--->2
-        //eng--->3
+
 
 
 
