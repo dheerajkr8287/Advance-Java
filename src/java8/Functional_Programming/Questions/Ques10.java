@@ -15,6 +15,7 @@ public class Ques10 {
                 .map(Integer::parseInt)
                 .map(num->Math.pow(num,2))
                 .reduce(Double::sum)
+
                 .ifPresent(System.out::println);
 
 
