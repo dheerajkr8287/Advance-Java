@@ -1,4 +1,5 @@
 package collectionFrameWork.List;
+// Linked list class impelementd Clonable,java.io.Serializable interface but do not random  access interface so in the linked list random accees is not possible by index
 
 import java.util.LinkedList;
 import java.util.List;
