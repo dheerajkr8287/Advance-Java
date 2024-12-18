@@ -7,9 +7,12 @@ collection Interface :root interface of the collection hirerachy .it declare bas
 -->Map Interface:store key value pair
 
 
+
 //generics are compile time in collection use after they remove it .
  */
 
+// arraylist class  implements randomAccess,Clonable,java.io.Serializable interface
+//randomAccess,Clonable,java.io.Serializable interface -> these interface is marker interface(which don't have variable and method in it).
 
 
 import java.util.*;
