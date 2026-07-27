@@ -18,9 +18,15 @@ public class java8Demo {
 
         //It provides clear and concise syntax for implementing functional interfaces (SAM)
 
+       //by simple
+        task task1=new task();
+        Thread t2=new Thread(task1);
+        t2.start();
+        //by anymonous class
         Thread t=new Thread(new task());//without lambda
+        //by lambda
         Thread t1=new Thread(()-> System.out.println("Hello from lambda"));//with lambda
-
+        t1.start();
         MathOperation sumOperation=(a,b)->a+b;//lambda for sum
         System.out.println("Sum: "+sumOperation.operation(5, 10));
     }
